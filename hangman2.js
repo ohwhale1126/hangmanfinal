@@ -1,21 +1,27 @@
-var lsgwoerter = [
-["T", "R", "E", "E", "H", "O", "U", "S", "E"]
+var terms = [
+["F", "U", "N", "C", "T", "I", "O", "N"]
+  , ["V", "A", "R", "I", "A", "B", "L", "E"]
+  , ["S", "T", "R", "I", "N", "G"]
+  , ["N", "U", "M", "B", "E", "R"]
+  , ["B", "O", "O", "L", "E", "A", "N"]
+  , ["Q", "U", "N", "I", "T"]
+  , ["C", "S", "S"]
+  , ["H", "T", "M", "L"]
+  , ["G", "I", "T", "H", "U", "B"]
   , ["J", "A", "V", "A", "S", "C", "R", "I", "P", "T"]
-  , ["W", "E", "B", "D", "E", "S", "I", "G", "N"]
-  , ["E", "D", "U", "C", "A", "T", "I", "O", "N"]
-  , ["C", "H", "O", "C", "O", "L", "A", "T", "E"]
-  , ["G", "E", "R", "M", "A", "N", "Y"]
+  , ["B", "O", "O", "T", "S", "T", "R", "A", "P"]
+
 ]
-var random = Math.floor((Math.random() * (lsgwoerter.length - 1)));
-var lsgwort = lsgwoerter[random]; // the word to guess will be chosen from the array above
-var ratewort = new Array(lsgwort.length);
-var fehler = 0;
+var random = Math.floor((Math.random() * (terms.length - 1)));
+var term = terms[random]; // the word to guess will be chosen from the array above
+var word = new Array(term.length);
+var newname = 0;
 // every letter in the word is symbolized by an underscore in the guessfield
 for (var i = 0; i < ratewort.length; i++) {
     ratewort[i] = "_ ";
 }
 // prints the guessfield
-function printRatewort() {
+function showWord() {
     for (var i = 0; i < ratewort.length; i++) {
         var ratefeld = document.getElementById("ratefeld");
         var buchstabe = document.createTextNode(ratewort[i]);
