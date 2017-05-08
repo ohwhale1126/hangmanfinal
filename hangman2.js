@@ -7,9 +7,9 @@ var lsgwoerter = [
   , ["G", "E", "R", "M", "A", "N", "Y"]
 ]
 var random = Math.floor((Math.random() * (lsgwoerter.length - 1)));
-var lsgwort = lsgwoerter[random]; // the word to guess will be chosen from the array above
-var ratewort = new Array(lsgwort.length);//ratewort= approx "evaluate word"
-var fehler = 0;//fehler = error
+var chosenWord= lsgwoerter[random]; // the word to guess will be chosen from the array above
+var ratewort = new Array(chosenWord.length);//ratewort= approx "evaluate word"
+var error = 0;//fehler = error
 // every letter in the word is symbolized by an underscore in the guessfield
 for (var i = 0; i < ratewort.length; i++) {
     ratewort[i] = "_ ";
@@ -28,8 +28,8 @@ var pruefeZeichen = function () {
     var b = f.elements["ratezeichen"];
     var zeichen = b.value; // the letter provided by the user ZEICHEN = character
     zeichen = zeichen.toUpperCase();
-    for (var i = 0; i < lsgwort.length; i++) {
-        if (lsgwort[i] === zeichen) {
+    for (var i = 0; i < chosenWord.length; i++) {
+        if (chosenWord[i] === zeichen) {
             ratewort[i] = zeichen + " ";
             var treffer = true;
         }
@@ -44,9 +44,9 @@ var pruefeZeichen = function () {
         var gerateneBuchstaben = document.getElementById("gerateneBuchstaben");
         var buchstabe = document.createTextNode(" " + zeichen);
         gerateneBuchstaben.appendChild(buchstabe);
-        fehler++;
+        error++;
         var hangman = document.getElementById("hangman");
-        hangman.src = "http://www.writteninpencil.de/Projekte/Hangman/hangman" + fehler + ".png";
+        hangman.src = "http://www.writteninpencil.de/Projekte/Hangman/hangman" + error + ".png";
     }
     //checks if all letters have been found
     var fertig = true;
@@ -59,7 +59,7 @@ var pruefeZeichen = function () {
         window.alert("You win!");
     }
     //once you got six wrong letters, you lose
-    if (fehler === 6) {
+    if (error === 6) {
         window.alert("Uh...I guess you're dead now.");
     }
 }
