@@ -21,7 +21,7 @@ for (var i = 0; i < ratewort.length; i++) {
     ratewort[i] = "_ ";
 }
 // prints the guessfield
-function showWord() {
+function printRatewort() {
     for (var i = 0; i < ratewort.length; i++) {
         var ratefeld = document.getElementById("ratefeld");
         var buchstabe = document.createTextNode(ratewort[i]); //buchstabe = letter
