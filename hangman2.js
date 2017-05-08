@@ -24,19 +24,19 @@ for (var i = 0; i < ratewort.length; i++) {
 function printRatewort() {
     for (var i = 0; i < ratewort.length; i++) {
         var ratefeld = document.getElementById("ratefeld");
-        var buchstabe = document.createTextNode(ratewort[i]); //buchstabe = letter
-        ratefeld.appendChild(buchstabe); //ratefeld = rate field
+        var letter = document.createTextNode(ratewort[i]); //buchstabe = letter
+        ratefeld.appendChild(letter); //ratefeld = rate field
     }
 }
 //checks if the the letter provided by the user matches one or more of the letters in the word
-var pruefeZeichen = function () {
+var checkCharacter = function () {
     var f = document.rateformular;
     var b = f.elements["ratezeichen"];
-    var zeichen = b.value; // the letter provided by the user ZEICHEN = character
-    zeichen = zeichen.toUpperCase();
+    var character = b.value; // the letter provided by the user ZEICHEN = character
+    character = character.toUpperCase();
     for (var i = 0; i < chosenWord.length; i++) {
-        if (chosenWord[i] === zeichen) {
-            ratewort[i] = zeichen + " ";
+        if (chosenWord[i] === character) {
+            ratewort[i] = character + " ";
             var treffer = true;
         }
         b.value = "";
@@ -47,9 +47,9 @@ var pruefeZeichen = function () {
     printRatewort();
     // if a guessed letter is not in the word, the letter will be put on the "wrong letters"-list and hangman grows
     if (!treffer) {
-        var gerateneBuchstaben = document.getElementById("gerateneBuchstaben");
-        var buchstabe = document.createTextNode(" " + zeichen);
-        gerateneBuchstaben.appendChild(buchstabe);
+        var guessedLetter = document.getElementById("guessedLetter");
+        var letter = document.createTextNode(" " + character);
+        guessedLetter.appendChild(letter);
         error++;
         var hangman = document.getElementById("hangman");
         hangman.src = "http://www.writteninpencil.de/Projekte/Hangman/hangman" + error + ".png";
