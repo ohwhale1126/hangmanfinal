@@ -13,15 +13,9 @@ var terms = [
 
 ]
 var random = Math.floor((Math.random() * (lsgwoerter.length - 1)));
-<<<<<<< HEAD
-var chosenWord= lsgwoerter[random]; // the word to guess will be chosen from the array above
-var ratewort = new Array(chosenWord.length);//ratewort= approx "evaluate word"
-var error = 0;//fehler = error
-=======
-var lsgwort = lsgwoerter[random]; // the word to guess will be chosen from the array above
-var ratewort = new Array(lsgwort.length); //ratewort= approx "evaluate word"
-var fehler = 0; //fehler = error
->>>>>>> origin/master
+var chosenWord = lsgwoerter[random]; // the word to guess will be chosen from the array above
+var ratewort = new Array(chosenWord.length); //ratewort= approx "evaluate word"
+var error = 0; //fehler = error
 // every letter in the word is symbolized by an underscore in the guessfield
 for (var i = 0; i < ratewort.length; i++) {
     ratewort[i] = "_ ";
