@@ -8,8 +8,8 @@ var lsgwoerter = [
 ]
 var random = Math.floor((Math.random() * (lsgwoerter.length - 1)));
 var lsgwort = lsgwoerter[random]; // the word to guess will be chosen from the array above
-var ratewort = new Array(lsgwort.length);
-var fehler = 0;
+var ratewort = new Array(lsgwort.length);//ratewort= approx "evaluate word"
+var fehler = 0;//fehler = error
 // every letter in the word is symbolized by an underscore in the guessfield
 for (var i = 0; i < ratewort.length; i++) {
     ratewort[i] = "_ ";
@@ -18,15 +18,15 @@ for (var i = 0; i < ratewort.length; i++) {
 function printRatewort() {
     for (var i = 0; i < ratewort.length; i++) {
         var ratefeld = document.getElementById("ratefeld");
-        var buchstabe = document.createTextNode(ratewort[i]);
-        ratefeld.appendChild(buchstabe);
+        var buchstabe = document.createTextNode(ratewort[i]);//buchstabe = letter
+        ratefeld.appendChild(buchstabe);//ratefeld = rate field
     }
 }
 //checks if the the letter provided by the user matches one or more of the letters in the word
 var pruefeZeichen = function () {
     var f = document.rateformular;
     var b = f.elements["ratezeichen"];
-    var zeichen = b.value; // the letter provided by the user
+    var zeichen = b.value; // the letter provided by the user ZEICHEN = character
     zeichen = zeichen.toUpperCase();
     for (var i = 0; i < lsgwort.length; i++) {
         if (lsgwort[i] === zeichen) {
@@ -52,7 +52,7 @@ var pruefeZeichen = function () {
     var fertig = true;
     for (var i = 0; i < ratewort.length; i++) {
         if (ratewort[i] === "_ ") {
-            fertig = false;
+            fertig = false;//fertig = finished
         }
     }
     if (fertig) {
