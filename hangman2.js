@@ -12,56 +12,56 @@ var terms = [
   , ["B", "O", "O", "T", "S", "T", "R", "A", "P"]
 
 ]
-var random = Math.floor((Math.random() * (lsgwoerter.length - 1)));
-var chosenWord = lsgwoerter[random]; // the word to guess will be chosen from the array above
-var ratewort = new Array(chosenWord.length); //ratewort= approx "evaluate word"
+var random = Math.floor((Math.random() * (terms.length - 1)));
+var wordchooser = terms[random]; // the word to guess will be chosen from the array above
+var newword = new Array(wordchooser.length); //ratewort= approx "evaluate word"
 var error = 0; //fehler = error
 // every letter in the word is symbolized by an underscore in the guessfield
-for (var i = 0; i < ratewort.length; i++) {
-    ratewort[i] = "_ ";
+for (var i = 0; i < newword.length; i++) {
+    newword[i] = "_ ";
 }
 // prints the guessfield
-function printRatewort() {
-    for (var i = 0; i < ratewort.length; i++) {
-        var ratefeld = document.getElementById("ratefeld");
-        var buchstabe = document.createTextNode(ratewort[i]); //buchstabe = letter
-        ratefeld.appendChild(buchstabe); //ratefeld = rate field
+function shownewword() {
+    for (var i = 0; i < newword.length; i++) {
+        var guessfield = document.getElementById("guessfield");
+        var letter = document.createTextNode(newword[i]); //buchstabe = letter
+        guessfield.appendChild(letter); //ratefeld = guess field
     }
 }
 //checks if the the letter provided by the user matches one or more of the letters in the word
-var pruefeZeichen = function () {
-    var f = document.rateformular;
-    var b = f.elements["ratezeichen"];
-    var zeichen = b.value; // the letter provided by the user ZEICHEN = character
-    zeichen = zeichen.toUpperCase();
-    for (var i = 0; i < chosenWord.length; i++) {
-        if (chosenWord[i] === zeichen) {
-            ratewort[i] = zeichen + " ";
-            var treffer = true;
+function checkcharacter() {
+    var a = document.blank; //check .rateformular - what's it's function
+    var b = a.elements["newcharacter"];
+    var character = b.value; // the letter provided by the user ZEICHEN = character
+    character = character.toUpperCase();
+    for (var i = 0; i < wordchooser.length; i++) {
+        if (wordchooser[i] === character) {
+            newword[i] = character + " ";
+            var goal = true;
         }
-        b.value = "";
+        character = "";
     }
     //deletes the guessfield and replaces it with the new one
-    var ratefeld = document.getElementById("ratefeld");
-    ratefeld.innerHTML = "";
-    printRatewort();
+    var guessfield = document.getElementById("guessfield");
+    guessfield.innerHTML = "";
+    shownewword();
     // if a guessed letter is not in the word, the letter will be put on the "wrong letters"-list and hangman grows
-    if (!treffer) {
-        var gerateneBuchstaben = document.getElementById("gerateneBuchstaben");
-        var buchstabe = document.createTextNode(" " + zeichen);
-        gerateneBuchstaben.appendChild(buchstabe);
+    if (!goal) {
+        var guessedletter = document.getElementById("guessedletter");
+        var letter = document.createTextNode(" " + character);
+        guessedletter.appendChild(letter);
         error++;
         var hangman = document.getElementById("hangman");
         hangman.src = "http://www.writteninpencil.de/Projekte/Hangman/hangman" + error + ".png";
     }
     //checks if all letters have been found
-    var fertig = true;
-    for (var i = 0; i < ratewort.length; i++) {
-        if (ratewort[i] === "_ ") {
-            fertig = false; //fertig = finished
+    var end = true;
+    for (var i = 0; i < newword.length; i++) {
+        if (newword[i] === "_ ") {
+            end = false; //fertig = finished/end
         }
     }
-    if (fertig) {
+    if (end) {
         window.alert("You win!");
     }
     //once you got six wrong letters, you lose
@@ -71,6 +71,6 @@ var pruefeZeichen = function () {
 }
 
 function init() {
-    printRatewort();
+    shownewword();
 }
 window.onload = init;
