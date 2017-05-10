@@ -12,21 +12,29 @@ var terms = [
   , ["B", "O", "O", "T", "S", "T", "R", "A", "P"]
 
 ]
+    // Gets a random term
 var random = Math.floor((Math.random() * (terms.length - 1)));
-var wordChooser = terms[random]; // the word to guess will be chosen from the array above
-var newWord = new Array(wordChooser.length); //ratewort= approx "evaluate word"
-var error = 0; //fehler = error
+// Chooses a word from the term array
+var wordChooser = terms[random];
+var newWord = new Array(wordChooser.length);
+var error = 0;
 console.log(wordChooser);
 // every letter in the word is symbolized by an underscore in the guessfield
 for (var i = 0; i < newWord.length; i++) {
     newWord[i] = "_ ";
 }
-// prints the guessfield
+/**
+ * This is a function for dividing two numbers
+ * @author Marty McFly
+ * @param {number} x    This is the numerator
+ * @param {number} y    This is the denominator
+ * @return {number} Returns the result
+ */
 function showNewWord() {
     for (var i = 0; i < newWord.length; i++) {
         var guessField = document.getElementById("guessField");
-        var letter = document.createTextNode(newWord[i]); //buchstabe = letter
-        guessField.appendChild(letter); //ratefeld = guess field
+        var letter = document.createTextNode(newWord[i]);
+        guessField.appendChild(letter);
     }
 }
 //checks if the the letter provided by the user matches one or more of the letters in the word
