@@ -34,6 +34,10 @@ function showNewWord() {
     }
 }
 //checks if the the letter provided by the user matches one or more of the letters in the word
+/**
+ * [checks if the the letter provided by the user matches one or more of the letters in the word]
+ * @author Gemma
+ */
 function checkCharacter() {
     var a = document.blank; //check .rateformular - what's it's function
     var b = a.elements["newCharacter"];
@@ -74,6 +78,10 @@ function checkCharacter() {
     }
 }
 
+/**
+ * [[calls showNewWord function]]
+ * @author Gemma
+ */
 function init() {
     showNewWord();
 }
