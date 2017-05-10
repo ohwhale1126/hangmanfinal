@@ -66,7 +66,7 @@ function checkCharacter() {
         window.alert("You win!");
     }
     //once you got six wrong letters, you lose
-    if (error === 6) {
+    if (error === 10) {
         window.alert("You lose :( .");
     }
 }
