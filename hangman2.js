@@ -24,11 +24,7 @@ for (var i = 0; i < newWord.length; i++) {
     newWord[i] = "_ ";
 }
 /**
- * This is a function for dividing two numbers
- * @author Marty McFly
- * @param {number} x    This is the numerator
- * @param {number} y    This is the denominator
- * @return {number} Returns the result
+ * [shows the guessField]
  */
 function showNewWord() {
     for (var i = 0; i < newWord.length; i++) {
@@ -50,11 +46,10 @@ function checkCharacter() {
         }
         b.value = "";
     }
-    //deletes the guessfield and replaces it with the new one
+    //deletes the guessField and replaces guessField with new term
     var guessField = document.getElementById("guessField");
     guessField.innerHTML = "";
     showNewWord();
-    // if a guessed letter is not in the word, the letter will be put on the "wrong letters"-list and hangman grows
     if (!goal) {
         var guessedLetter = document.getElementById("guessedLetter");
         var letter = document.createTextNode(" " + character);
