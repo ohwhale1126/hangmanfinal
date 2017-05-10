@@ -24,7 +24,7 @@ for (var i = 0; i < newWord.length; i++) {
 // prints the guessfield
 function showNewWord() {
     for (var i = 0; i < newWord.length; i++) {
-        var guessField = document.getElementById("guessfield");
+        var guessField = document.getElementById("guessField");
         var letter = document.createTextNode(newWord[i]); //buchstabe = letter
         guessField.appendChild(letter); //ratefeld = guess field
     }
@@ -32,7 +32,7 @@ function showNewWord() {
 //checks if the the letter provided by the user matches one or more of the letters in the word
 function checkCharacter() {
     var a = document.blank; //check .rateformular - what's it's function
-    var b = a.elements["newcharacter"];
+    var b = a.elements["newCharacter"];
     var character = b.value; // the letter provided by the user
     character = character.toUpperCase();
     for (var i = 0; i < wordChooser.length; i++) {
@@ -40,20 +40,20 @@ function checkCharacter() {
             newWord[i] = character + " ";
             var goal = true;
         }
-        character = "";
+        b.value = "";
     }
     //deletes the guessfield and replaces it with the new one
-    var guessField = document.getElementById("guessfield");
+    var guessField = document.getElementById("guessField");
     guessField.innerHTML = "";
     showNewWord();
     // if a guessed letter is not in the word, the letter will be put on the "wrong letters"-list and hangman grows
     if (!goal) {
-        var guessedLetter = document.getElementById("guessedletter");
+        var guessedLetter = document.getElementById("guessedLetter");
         var letter = document.createTextNode(" " + character);
         guessedLetter.appendChild(letter);
         error++;
         var hangman = document.getElementById("hangman");
-        hangman.src = "http://www.writteninpencil.de/Projekte/Hangman/hangman" + error + ".png";
+        hangman.src = "hangmanpics/hangman" + error + ".png";
     }
     //checks if all letters have been found
     var end = true;
